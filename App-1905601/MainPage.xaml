@@ -6,9 +6,118 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    >
+    <Page.Resources>
+        <Style TargetType="Button" x:Key="MainButtonStyle">
+            <Setter Property="Height" Value="44" />
+            <Setter Property="Width" Value="44" />
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MainTitleTextBlockStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+        <Style TargetType="SplitView" x:Key="MainSplitViewStyle">
+            <Setter Property="OpenPaneLength" Value="200"/>
+            <Setter Property="CompactPaneLength" Value="44"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MenuListBoxIconTextBlockStyle">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="MenuListBoxNameTextBlockStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+    </Page.Resources>
 
-    <Grid>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <RelativePanel>
+            <Button Name="HamburgerButton"
+                    Style="{StaticResource MainButtonStyle}"
+                    RelativePanel.AlignLeftWithPanel="True" 
+                    Click="HamburgerButton_Click"
+                    FontFamily="Segoe MDL2 Assets" 
+                    Content="&#xE700;"/>
+
+            <Button Name="BackButton" 
+                    Style="{StaticResource MainButtonStyle}"
+                    RelativePanel.RightOf="HamburgerButton"
+                    Click="BackButton_Click"
+                    FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE0A6;"
+                    />
+            <TextBlock Name="MainTitleTextBlock" 
+                       Style="{StaticResource MainTitleTextBlockStyle}"
+                       RelativePanel.RightOf="HamburgerButton"
+                       FontWeight="Bold"
+                       Margin="20,0,0,0" />
+
+            <AutoSuggestBox Name="SearchAutoSuggestBox" 
+                            PlaceholderText="Search for"
+                            Width="200"
+                            QueryIcon="Find"
+                            Margin="0,5,10,0"
+                            TextChanged="SearchAutoSuggestBox_TextChanged"
+                            QuerySubmitted="SearchAutoSuggestBox_QuerySubmitted"
+                            RelativePanel.AlignRightWithPanel="True">
+            </AutoSuggestBox>
+        </RelativePanel>
+
+        <SplitView Name="MainSplitView" 
+                   Style="{StaticResource MainSplitViewStyle}"
+                   Grid.Row="1" 
+                   DisplayMode="CompactOverlay" >
+            <SplitView.Pane>
+                <ListBox Name="MainListBox"
+                         SelectionMode="Single" 
+                         SelectionChanged="MainListBox_SelectionChanged">
+                    <ListBoxItem Name="HomePage">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListBoxIconTextBlockStyle}"
+                                       Text="&#xE80F;" />
+                            <TextBlock Style="{StaticResource MenuListBoxNameTextBlockStyle}"
+                                       Text="Home"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Star">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListBoxIconTextBlockStyle}"
+                                       Text="&#xE1CE;"/>
+                            <TextBlock Style="{StaticResource MenuListBoxNameTextBlockStyle}"
+                                       Text="Star"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="Settings">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListBoxIconTextBlockStyle}"
+                                       Text="&#xE115;"/>
+                            <TextBlock Style="{StaticResource MenuListBoxNameTextBlockStyle}"
+                                       Text="Settings"/>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <GridView Name="MainItemGrid" 
+                          HorizontalAlignment="Stretch"
+                          Margin="10,0,0,0">
+                    <Frame Name="MainFrame"/>
+                    <!--
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    -->
+                </GridView>
+            </SplitView.Content>
+        </SplitView>
 
     </Grid>
 </Page>

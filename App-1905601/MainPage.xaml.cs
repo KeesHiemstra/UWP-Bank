@@ -17,14 +17,49 @@ using Windows.UI.Xaml.Navigation;
 
 namespace App_1905601
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+  /// <summary>
+  /// An empty page that can be used on its own or navigated to within a Frame.
+  /// </summary>
+  public sealed partial class MainPage : Page
+  {
+    public MainPage()
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+      this.InitializeComponent();
+
+      if (!MainFrame.CanGoBack)
+        BackButton.Visibility = Visibility.Collapsed;
     }
+
+    private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+    {
+      MainSplitView.IsPaneOpen = !MainSplitView.IsPaneOpen;
+    }
+
+    private void BackButton_Click(object sender, RoutedEventArgs e)
+    {
+      if (MainFrame.CanGoBack)
+      {
+        MainFrame.GoBack();
+      }
+
+    }
+
+    private void SearchAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+
+    }
+
+    private void SearchAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+
+    }
+
+    private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+      if (HomePage.IsSelected)
+      {
+        MainFrame.Navigate(typeof(HomePage));
+      }
+    }
+  }
 }
