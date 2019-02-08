@@ -8,7 +8,31 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="This are the settings"/>
+    <Grid x:Name="SettingsGrid">
+
+        <StackPanel>
+            <TextBlock Text="Database server name"/>
+            <TextBox x:Name="ServerName"
+                     Text="(local)"
+                     PlaceholderText="(local)"/>
+
+            <TextBlock Text="Database name"/>
+            <TextBox x:Name="DatabaseName"
+                     Text="Banking_Dev"
+                     PlaceholderText="Banking"/>
+
+            
+            <TextBlock Text="Base drive"/>
+            <ComboBox x:Name="BaseDrive"
+                      PlaceholderText="%OneDrive%">
+                <ComboBoxItem>C:\</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">%OneDrive%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="Base folder"/>
+            <TextBox x:Name="BaseFolder"
+                     Text="Documents\Huishouden"
+                     PlaceholderText="Documents\Huishouden"/>
+
+        </StackPanel>
     </Grid>
 </Page>
