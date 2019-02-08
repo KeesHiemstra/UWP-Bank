@@ -18,14 +18,39 @@ using MUXC = Microsoft.UI.Xaml.Controls;
 
 namespace App_1906501
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class MainPage : Page
+  /// <summary>
+  /// An empty page that can be used on its own or navigated to within a Frame.
+  /// </summary>
+  public sealed partial class MainPage : Page
+  {
+    public MainPage()
     {
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
+      this.InitializeComponent();
+
+      //string appName = Windows.ApplicationModel.Package.Current.DisplayName;
     }
+
+    private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+    {
+      if (args.IsSettingsSelected)
+      {
+        ContentFrame.Navigate(typeof(SettingsPage));
+        NavView.Header = "Settings";
+      }
+      else
+      {
+        NavigationViewItem item = args.SelectedItem as NavigationViewItem;
+
+        switch (item.Tag.ToString())
+        {
+          case "home":
+            ContentFrame.Navigate(typeof(HomePage));
+            NavView.Header = "Home";
+            break;
+          default:
+            break;
+        }
+      }
+    }
+  }
 }
