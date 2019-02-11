@@ -23,13 +23,13 @@
 
             
             <TextBlock Text="Base drive"/>
-            <ComboBox x:Name="BaseDrive"
+            <ComboBox x:Name="ImportBaseDrive"
                       PlaceholderText="%OneDrive%">
                 <ComboBoxItem>C:\</ComboBoxItem>
                 <ComboBoxItem IsSelected="True">%OneDrive%</ComboBoxItem>
             </ComboBox>
             <TextBlock Text="Base folder"/>
-            <TextBox x:Name="BaseFolder"
+            <TextBox x:Name="ImportBaseFolder"
                      Text="Documents\Huishouden"
                      PlaceholderText="Documents\Huishouden"/>
 
