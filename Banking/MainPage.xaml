@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    	xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    x:Name="Banking"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -21,6 +22,10 @@
                                     Tag="home"/>
                 <NavigationViewItemHeader x:Name="OperationsNavViewHeader"
                                           Content="Operations"/>
+                <NavigationViewItem x:Name="ImportNavViewItem"
+                                    Content="Import"
+                                    Icon="Import"
+                                    Tag="import"/>
             </NavigationView.MenuItems>
 
             <Frame x:Name="ContentFrame"

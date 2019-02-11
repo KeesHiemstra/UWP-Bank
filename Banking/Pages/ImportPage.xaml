@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Banking.Pages.SettingsPage"
+    x:Class="Banking.Pages.ImportPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Banking.Pages"
@@ -8,11 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Margin="10,0,10,0">
-        <StackPanel>
-            <TextBlock Text="Import overview" />
-            
-            
-        </StackPanel>
+    <Grid>
+
     </Grid>
 </Page>

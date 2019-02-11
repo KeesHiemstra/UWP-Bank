@@ -27,6 +27,7 @@ namespace Banking
     public MainPage()
     {
       this.InitializeComponent();
+      NavView.IsPaneOpen = false;
     }
 
     private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -45,6 +46,10 @@ namespace Banking
           case "home":
             ContentFrame.Navigate(typeof(HomePage));
             NavView.Header = "Home";
+            break;
+          case "import":
+            ContentFrame.Navigate(typeof(ImportPage));
+            NavView.Header = "Import banking data";
             break;
           default:
             break;
