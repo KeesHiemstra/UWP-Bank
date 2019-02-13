@@ -10,9 +10,6 @@
 
     <Grid Margin="10,0,10,0">
         <StackPanel>
-            <TextBlock Text="Import overview" />
-            
-            
         </StackPanel>
     </Grid>
 </Page>

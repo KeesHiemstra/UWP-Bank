@@ -8,7 +8,22 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Margin="10,0,10,0">
+        <StackPanel>
+            <TextBlock Text="Import overview" />
 
+            <!-- https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.gridview -->
+            <GridView x:Name="ImportOverviewGridView">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding ImportDate}" />
+                            <TextBlock Text="{Binding Count}" />
+                            <TextBlock Text="{Binding Amount}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </StackPanel>
     </Grid>
 </Page>
