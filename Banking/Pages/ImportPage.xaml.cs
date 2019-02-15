@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Banking.Views;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,13 @@ namespace Banking.Pages
   /// </summary>
   public sealed partial class ImportPage : Page
   {
+    public ImportOverview Imports { get; set; }
+
     public ImportPage()
     {
       this.InitializeComponent();
+
+      this.Imports = new ImportOverview();
     }
   }
 }

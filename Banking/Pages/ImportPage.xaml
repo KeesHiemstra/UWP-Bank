@@ -13,7 +13,8 @@
             <TextBlock Text="Import overview" />
 
             <!-- https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.controls.gridview -->
-            <GridView x:Name="ImportOverviewGridView">
+            <GridView x:Name="ImportOverviewGridView"
+                      DataContext="{x:Bind Imports.ImportCounts}">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -24,6 +25,11 @@
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Number imports: "/>
+                <TextBlock Text="{x:Bind Imports.ImportCount}"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

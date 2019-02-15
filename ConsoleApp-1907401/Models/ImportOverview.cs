@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Banking.Models
+namespace ConsoleApp_1907401.Models
 {
   public class ImportCount
   {
